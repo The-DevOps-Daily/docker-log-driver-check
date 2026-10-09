@@ -1,0 +1,6 @@
+== before: daemon default is json-file
+logs-before: json-file
+== after: daemon default is local
+logs-before (created before, started again now): json-file
+logs-after  (created after): local
+daemon flags: --log-driver local (restarted between the two phases)

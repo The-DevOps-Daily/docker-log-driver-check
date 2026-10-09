@@ -1,0 +1,13 @@
+Fluent Bit: Fluent Bit v5.1.3
+
+== the usual Docker host pattern: <container dir>/*.log, docker parser
+logs-json-default  records read: 500000
+logs-json-capped   records read: 22860
+logs-local         records read: 0
+
+== aimed at the local driver's own file: local-logs/container.log
+records read: 158382
+records the docker parser could parse: 0
+records 2 and 3, control bytes shown with cat -v:
+[1] tail.0: [[1791541459.686498853, {}], {"log"=>"^Fstdout^PM-^EM-XM-^ZM-bM-$M-^QM-5M-n^X^Z_2026-10-09T10:00:00.341619Z level=info msg="GET /api/v1/orders 200" req_id=00341619 bytes=30861^@^@^@s^@^@^@s"}]
+[2] tail.0: [[1791541459.686500797, {}], {"log"=>"^Fstdout^PM-HM-^OM-OM-^JM-'M-^QM-5M-n^X^Z_2026-10-09T10:00:00.341620Z level=info msg="GET /api/v1/orders 200" req_id=00341620 bytes=38780^@^@^@s^@^@^@s"}]

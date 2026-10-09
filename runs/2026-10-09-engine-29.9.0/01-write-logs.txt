@@ -1,0 +1,3 @@
+logs-json-default: driver=json-file options={}
+logs-json-capped: driver=json-file options={"max-file":"3","max-size":"10m"}
+logs-local: driver=local options={}

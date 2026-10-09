@@ -1,0 +1,19 @@
+service:
+  flush: 1
+  log_level: warn
+parsers:
+  - name: docker
+    format: json
+    time_key: time
+    time_format: "%Y-%m-%dT%H:%M:%S.%L"
+pipeline:
+  inputs:
+    - name: tail
+      path: /var/lib/docker/containers/8341ed3a26f6ae883d54a1e5a7edab3f647f570205246b5e011a7459d658c7d6/local-logs/container.log
+      parser: docker
+      read_from_head: true
+      exit_on_eof: true
+      buffer_max_size: 1M
+  outputs:
+    - name: stdout
+      match: '*'

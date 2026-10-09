@@ -1,0 +1,5 @@
+date: 2026-10-09T10:06:36Z
+host: Linux 6.12.62+rpt-rpi-v8 aarch64
+docker client 29.9.0, engine 29.9.0
+daemon default log driver: json-file
+host model: Raspberry Pi 4 Model B Rev 1.1

@@ -1,0 +1,38 @@
+container          driver     bytes_on_disk  files   lines_kept  bytes_of_text
+logs-json-default  json-file      83833258      1       500000       47888900
+logs-json-capped   json-file      23833155      3       142146       13614435
+logs-local         local          24134700      3       500000       47888900
+
+== logs-json-default: files under the container directory
+3b45893d6d61d3e5de83ee4352665e47bf5e5ec6551db7339cfb16dd470d1c8b-json.log 83833258
+== logs-json-default: first 160 bytes of 3b45893d6d61d3e5de83ee4352665e47bf5e5ec6551db7339cfb16dd470d1c8b-json.log
+0000000   {   "   l   o   g   "   :   "   2   0   2   6   -   1   0   -
+0000020   0   9   T   1   0   :   0   0   :   0   0   .   0   0   0   0
+0000040   0   1   Z       l   e   v   e   l   =   i   n   f   o       m
+0000060   s   g   =   \   "   G   E   T       /   a   p   i   /   v   1
+0000100   /   o   r   d   e   r   s       2   0   0   \   "       r   e
+0000120   q   _   i   d   =   0   0   0   0   0   0   0   1       b   y
+
+== logs-json-capped: files under the container directory
+a7a749b9e8fe827956270b491e8cd03857ae40ea23ccd730fb81d0a8548ea964-json.log.1 10000137
+a7a749b9e8fe827956270b491e8cd03857ae40ea23ccd730fb81d0a8548ea964-json.log.2 10000100
+a7a749b9e8fe827956270b491e8cd03857ae40ea23ccd730fb81d0a8548ea964-json.log 3832918
+== logs-json-capped: first 160 bytes of a7a749b9e8fe827956270b491e8cd03857ae40ea23ccd730fb81d0a8548ea964-json.log
+0000000   {   "   l   o   g   "   :   "   2   0   2   6   -   1   0   -
+0000020   0   9   T   1   0   :   0   0   :   0   0   .   4   7   7   1
+0000040   4   1   Z       l   e   v   e   l   =   i   n   f   o       m
+0000060   s   g   =   \   "   G   E   T       /   a   p   i   /   v   1
+0000100   /   o   r   d   e   r   s       2   0   0   \   "       r   e
+0000120   q   _   i   d   =   0   0   4   7   7   1   4   1       b   y
+
+== logs-local: files under the container directory
+local-logs/container.log 19445796
+local-logs/container.log.1.gz 2342480
+local-logs/container.log.2.gz 2346424
+== logs-local: first 160 bytes of local-logs/container.log
+0000000  \0  \0  \0   s  \n 006   s   t   d   o   u   t 020 205 330 232
+0000020 342 244 221 265 356 030 032   _   2   0   2   6   -   1   0   -
+0000040   0   9   T   1   0   :   0   0   :   0   0   .   3   4   1   6
+0000060   1   9   Z       l   e   v   e   l   =   i   n   f   o       m
+0000100   s   g   =   "   G   E   T       /   a   p   i   /   v   1   /
+0000120   o   r   d   e   r   s       2   0   0   "       r   e   q   _
