@@ -5,7 +5,7 @@ source "$(dirname "$0")/lib.sh"
 
 out="$RUN_DIR/02-measure.txt"
 : > "$out"
-printf '%-18s %-10s %12s %6s %12s %14s\n' container driver bytes_on_disk files lines_kept bytes_of_text | tee -a "$out"
+printf '%-18s %-10s %12s %6s %12s %14s\n' container driver file_bytes files lines_kept bytes_of_text | tee -a "$out"
 for name in logs-json-default logs-json-capped logs-local; do
   dir=$(container_dir "$name")
   files=$(sudo find "$dir" -type f \( -name '*.log*' -o -path '*local-logs*' \) | sort)

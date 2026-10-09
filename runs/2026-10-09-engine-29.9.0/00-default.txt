@@ -1,0 +1,4 @@
+$ docker version --format 'docker client {{.Client.Version}}, engine {{.Server.Version}}'
+docker client 29.9.0, engine 29.9.0
+$ docker info --format '{{.LoggingDriver}}'
+json-file

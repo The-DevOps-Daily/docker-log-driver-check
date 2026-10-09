@@ -15,6 +15,7 @@ Companion repo for the DevOps Daily post on the change.
 
 | Script | What it records |
 | --- | --- |
+| `00-default.sh` | The Engine version and its default log driver. |
 | `01-write-logs.sh` | Starts `logs-json-default` (json-file, no options), `logs-json-capped` (json-file, `max-size=10m`, `max-file=3`) and `logs-local` (local, its defaults). Each writes `$LINES` lines of about 96 bytes. |
 | `02-measure.sh` | Bytes on disk, the files each driver wrote, the first bytes of each file, and how many lines and bytes `docker logs` gives back. |
 | `03-collector.sh` | Runs Fluent Bit's `tail` input with the docker parser on each container's `*.log` files, the usual Docker host setup, and counts the records. Then points it at the `local` driver's own file. |
@@ -25,9 +26,9 @@ The scripts read log files from the daemon's data root, so they call `sudo`. Set
 
 ## Results
 
-`runs/2026-10-09-engine-29.9.0/` is the recorded run: Docker Engine 29.9.0 on a Raspberry Pi 4 (arm64, 4 GB), Fluent Bit 5.1.3. These lines repeat a lot, so they compress better than most real logs.
+`runs/2026-10-09-engine-29.9.0/` is the recorded run: Docker Engine 29.9.0 on a Raspberry Pi 4 (arm64), Fluent Bit 5.1.3. `00-default.txt` comes from a second Engine 29.9.0 daemon with no logging settings, because the test daemon was restarted with `local` as its default for `04-default-change.sh`. These lines repeat a lot, so they compress well; how well your logs compress depends on their content.
 
-| Setup | Bytes on disk | Lines `docker logs` still returns | Lines the `*.log` tail read |
+| Setup | Size of the log files (bytes) | Lines `docker logs` still returns | Lines the `*.log` tail read |
 | --- | ---: | ---: | ---: |
 | json-file, no options | 83,833,258 | 500,000 | 500,000 |
 | json-file, 10m x 3 | 23,833,155 | 142,146 | 22,860 |

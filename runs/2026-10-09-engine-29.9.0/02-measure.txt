@@ -1,4 +1,4 @@
-container          driver     bytes_on_disk  files   lines_kept  bytes_of_text
+container          driver       file_bytes  files   lines_kept  bytes_of_text
 logs-json-default  json-file      83833258      1       500000       47888900
 logs-json-capped   json-file      23833155      3       142146       13614435
 logs-local         local          24134700      3       500000       47888900
